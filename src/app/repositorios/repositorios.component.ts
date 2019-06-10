@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GitServiceService } from './gitService.service';
-import { repositorios } from './repositorio_model';
+import { repositorios } from './model/repositorio';
 
 @Component({
   selector: 'app-repositorios',
@@ -18,10 +18,6 @@ export class RepositoriosComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  respositoriosUser(){
-    
   }
 
 }

@@ -1,0 +1,57 @@
+
+
+<div class="container">
+    <div class="page-header mt-4" > 
+        <h1>Usuário: {{ user }}</h1> <button class="btn btn-sm btn-warning" routerLink="/">Voltar</button>
+
+     </div>
+     
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+         <div class="well profile">
+              <div class="col-sm-12">
+                  <div class="col-xs-12 col-sm-8">
+                      <h3><strong>Nome: </strong>{{infoUser.name}}</h3>
+                      <p><strong>Link do github: </strong>  <a href="{{infoUser.html_url}}" target="_blank"> Github</a> </p>
+                      <p *ngIf="infoUser.blog"><strong>Blog: </strong> <a href="{{infoUser.blog}}" target="_blank">{{infoUser.blog}}</a> </p>
+                      <p *ngIf="infoUser.bio"><strong>Bio: </strong>
+                           {{infoUser.bio}}
+                      </p>
+                      <p *ngIf="infoUser.location"><strong>Localização: </strong>
+                        {{infoUser.location}}
+                     </p>
+                     <p *ngIf="infoUser.email"><strong>Email: </strong>
+                      {{infoUser.email}}
+                   </p>
+                  </div>             
+                  <div class="col-md-4 text-center">
+                      <figure>
+                          <img src="{{infoUser.avatar_url}}" alt="" class="img-circle img-responsive">
+                      </figure>
+                  </div>
+              </div>            
+              <div class="col-xs-12 divider text-center">
+                  <div class="col-xs-12 col-sm-4 emphasis">
+                      <h2><strong> {{infoUser.followers}}</strong></h2>                    
+                      <p><small>Followers</small></p>
+                  </div>
+                  <div class="col-xs-12 col-sm-4 emphasis">
+                      <h2><strong>{{infoUser.following}}</strong></h2>                    
+                      <p><small>Following</small></p>
+                  </div>
+                  <div class="col-xs-12 col-sm-4 emphasis">
+                      <h2><strong>{{infoUser.public_repos}}</strong></h2>                    
+                      <p><small>Repositórios</small></p>
+                    
+                  </div>
+              </div>
+              <br>
+              <button class="btn btn-sm btn-info s" [routerLink]="['/user/repositorios', user]">Repositórios de {{ user }}</button>
+
+         </div>                 
+      </div>
+ 
+    </div>
+ 
+  
+    </div>

@@ -10,14 +10,21 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class RepositoriosUsuarioComponent implements OnInit {
 
-  constructor(private getservice: GitServiceService,private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private getservice: GitServiceService,
+    private route: ActivatedRoute
+    ) 
+    { }
 
   user: string; 
   repositoriosUser: any;
 
   ngOnInit(): void {
+    
+    // Pega o Id do user
     this.user = this.route.snapshot.paramMap.get('id');
 
+    // Manda pro serviço o id e retorna a solicitação.
     this.getservice.getRepositoriosUsuario(this.user).subscribe(res => this.repositoriosUser = res)
 }
 

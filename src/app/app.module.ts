@@ -7,9 +7,10 @@ import { RepositoriosComponent } from './repositorios/repositorios.component';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe} from './shared/filter.pipe';
 import { GitServiceService } from './repositorios/gitService.service';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { RepositoriosUsuarioComponent } from './repositorios/repositorios-usuario/repositorios-usuario.component';
+import { DetalheUsuarioComponent } from './repositorios/detalhe-usuario/detalhe-usuario.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { RepositoriosUsuarioComponent } from './repositorios/repositorios-usuari
       AppComponent,
       RepositoriosComponent,
       RepositoriosUsuarioComponent,
+      DetalheUsuarioComponent,
       FilterPipe
    ],
    imports: [

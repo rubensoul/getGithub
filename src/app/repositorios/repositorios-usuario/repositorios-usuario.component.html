@@ -1,7 +1,11 @@
 <div class="container">
   
-    <div class="page-header mt-4"> 
-     <h1>Lista de repositórios de {{ user }}</h1>
+    <div class="page-header mt-4" > 
+     <h1>Lista de repositórios de <strong>{{ user }} </strong></h1> 
+     <hr>
+     <button class="btn btn-sm btn-info s" [routerLink]="['/user', user]">Sobre {{user}}</button> | 
+     <button class="btn btn-sm btn-warning" routerLink="/">Voltar</button>
+
      <hr>
     </div>
   
@@ -10,17 +14,12 @@
     <thead>
     <tr>
       <th scope="col">Nome do repositório</th>
-      <th scope="col">Sobre o dono</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let repo of repositoriosUser;">
       <td>
         {{ repo.name }}
-      </td>
-      <td>
-        <strong>Login:</strong> {{ repo.owner.login}} |
-        <a class="btn btn-sm btn-info" [routerLink]="['user', repo.owner.login]">Ver Repositórios</a>
       </td>
     </tr>
     </tbody>

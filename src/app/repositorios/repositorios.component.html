@@ -6,7 +6,8 @@
   </div>
 
 
-<input [(ngModel)]="searchText" placeholder="Pesquisar Repositório"><br>
+<input [(ngModel)]="searchText" class="form-control" placeholder="Pesquisar Repositório"><br>
+<hr>
 
 <table class="table table-striped mt-2">
   <thead>
@@ -16,13 +17,14 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let repo of repositorios;">
+  <tr *ngFor="let repo of repositorios | filter : 'name' : searchText;">
     <td>
       {{ repo.name }}
     </td>
     <td>
       <strong>Login:</strong> {{ repo.owner.login}} |
-      <a class="btn btn-sm btn-info" [routerLink]="['user', repo.owner.login]">Ver Repositórios</a>
+      <a class="btn btn-sm btn-info" [routerLink]="['user/repositorios', repo.owner.login]">Ver todos Repositórios</a> | 
+      <a class="btn btn-sm btn-warning" [routerLink]="['user', repo.owner.login]">Ver Usuário</a>
     </td>
   </tr>
   </tbody>
