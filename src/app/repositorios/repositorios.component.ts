@@ -1,28 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { GitServiceService } from './gitService.service';
+import { repositorios } from './repositorio_model';
 
 @Component({
   selector: 'app-repositorios',
   templateUrl: './repositorios.component.html',
-  styleUrls: ['./repositorios.component.scss']
+  styleUrls: ['./repositorios.component.scss'],
+  providers:[GitServiceService]
 })
 export class RepositoriosComponent implements OnInit {
   public searchText: string;
+  repositorios:repositorios[];
 
-  name = 'Angular';
-  characters = [
-    'Finn the human',
-    'Jake the dog',
-    'Princess bubblegum',
-    'Lumpy Space Princess',
-    'Beemo1',
-    'Beemo2'
-  ]
-
-  constructor() { }
+  constructor(private getservice: GitServiceService) { 
+    this.getservice.getAll().subscribe(res => this.repositorios = res);
+    
+  }
 
   ngOnInit() {
   }
 
-
+  respositoriosUser(){
+    
+  }
 
 }
