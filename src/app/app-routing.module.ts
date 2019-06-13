@@ -6,8 +6,12 @@ import { DetalheUsuarioComponent } from './repositorios/detalhe-usuario/detalhe-
 
 const routes: Routes = [
   { path: '', component: RepositoriosComponent},
-  {path: 'user/repositorios/:id', component:RepositoriosUsuarioComponent},
-  {path: 'user/:id', component:DetalheUsuarioComponent}
+  { path: 'user/repositorios/:id', component:RepositoriosUsuarioComponent},
+  { path: 'user/:id', component:DetalheUsuarioComponent},
+    {
+      path: 'search',
+      loadChildren: './repositorios/search/search.module#SearchModule'
+    }
 
 ];
 

@@ -17,4 +17,4 @@ export interface repositorios{
     description: string,
     fork: boolean,
     url: string,
-    }
+ }

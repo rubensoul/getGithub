@@ -28,6 +28,7 @@ import { DetalheUsuarioComponent } from './repositorios/detalhe-usuario/detalhe-
       HttpClientModule,
       NgbModule
    ],
+   exports:[FilterPipe],
    providers: [GitServiceService],
    bootstrap: [
       AppComponent
