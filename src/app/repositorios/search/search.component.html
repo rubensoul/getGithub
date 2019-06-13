@@ -1,9 +1,19 @@
-<div id="search-component">
-  <h4>Hero Search</h4>
-  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
-  <div>
-    <div *ngFor="let repo of repositorios | async"  class="search-result">
-      {{repo.items.name}}
+<div class="container">
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <div id="search-component">
+      <h4>Buscar repositórios</h4>
+
+      <input #searchBox id="search-box" class="form-control" (keyup)="search(searchBox.value)" />
+      <div>
+        <div *ngFor="let repo of repositorios | async" class="search-result">
+          {{repo}}
+        </div>
+      </div>
+
     </div>
+
   </div>
+</div>
 </div>

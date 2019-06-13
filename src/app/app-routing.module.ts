@@ -5,11 +5,11 @@ import { RepositoriosUsuarioComponent } from './repositorios/repositorios-usuari
 import { DetalheUsuarioComponent } from './repositorios/detalhe-usuario/detalhe-usuario.component';
 
 const routes: Routes = [
-  { path: '', component: RepositoriosComponent},
-  { path: 'user/repositorios/:id', component:RepositoriosUsuarioComponent},
-  { path: 'user/:id', component:DetalheUsuarioComponent},
+  { path: 'repositorios', component: RepositoriosComponent},
+  { path: 'repositorios/user/repositorios/:id', component:RepositoriosUsuarioComponent},
+  { path: 'repositorios/user/:id', component:DetalheUsuarioComponent},
     {
-      path: 'search',
+      path: '',
       loadChildren: './repositorios/search/search.module#SearchModule'
     }
 
