@@ -41,10 +41,11 @@ constructor(private http: HttpClient) { }
 
 
 
+
   // Search
-  search(term: string): Observable<RepositoriosSearch[]> {
+  search(term: string): Observable<any> {
     return this.http
-      .get<RepositoriosSearch[]>(`https://api.github.com/search/repositories?q=${term}`)
+      .get(`https://api.github.com/search/repositories?q=${term}`)
       .pipe(catchError(this.handleError));
   }
 

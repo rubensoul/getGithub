@@ -19,10 +19,9 @@ import {
 export class SearchComponent implements OnInit {
   public searchText: string;
 
-  repositorios: any;
   private searchTerms: Subject<string> = new Subject<string>();
+  repositorios$: Observable<RepositoriosSearch>
 
-  
 
   constructor(private getrepositorioService: GitServiceService) {
   }
@@ -33,7 +32,7 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.repositorios = this.searchTerms.pipe(
+    this.searchTerms.pipe(
       debounceTime(300), // tempo de pausa entre os eventos, assim não faz requisição enquanto o user ainda está escrevendo
       distinctUntilChanged(), // ignora se o próximo termo de pesquisa for o mesmo que o anterior
       switchMap(
@@ -49,7 +48,7 @@ export class SearchComponent implements OnInit {
         console.log(`Error in component ... ${error}`);
         return of<RepositoriosSearch[]>([]);
       })
-    );
+    ).subscribe(res => { this.repositorios$ = res.items, console.log(res.items)});
   }
 
 }

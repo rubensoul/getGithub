@@ -7,8 +7,8 @@
 
       <input #searchBox id="search-box" class="form-control" (keyup)="search(searchBox.value)" />
       <div>
-        <div *ngFor="let repo of repositorios | async" class="search-result">
-          {{repo}}
+        <div *ngFor="let repo of repositorios$ " class="search-result">
+            {{repo.name}}
         </div>
       </div>
 
