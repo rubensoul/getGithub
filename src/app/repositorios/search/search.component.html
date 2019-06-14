@@ -6,10 +6,11 @@
       <h4>Buscar repositórios</h4>
 
       <input #searchBox id="search-box" class="form-control" (keyup)="search(searchBox.value)" />
-
+        <br>
         <ul *ngIf="repositorios">
         <li *ngFor="let repo of repositorios " class="search-result">
            <p>{{repo.name | json}}</p>
+         -  Dono <a [routerLink]="['repositorios/user/repositorios', repo.owner.login]">  {{repo.owner.login | json}} </a>
           <hr>
         </li>
       </ul>
