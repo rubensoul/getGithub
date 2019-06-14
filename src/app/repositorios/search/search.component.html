@@ -6,11 +6,13 @@
       <h4>Buscar repositórios</h4>
 
       <input #searchBox id="search-box" class="form-control" (keyup)="search(searchBox.value)" />
-      <div>
-        <div *ngFor="let repo of repositorios$ " class="search-result">
-            {{repo.name}}
-        </div>
-      </div>
+
+        <ul *ngIf="repositorios">
+        <li *ngFor="let repo of repositorios " class="search-result">
+           <p>{{repo.name | json}}</p>
+          <hr>
+        </li>
+      </ul>
 
     </div>
 

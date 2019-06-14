@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit {
   public searchText: string;
 
   private searchTerms: Subject<string> = new Subject<string>();
-  repositorios$: Observable<RepositoriosSearch>
+  repositorios: Observable<any[]>
 
 
   constructor(private getrepositorioService: GitServiceService) {
@@ -37,10 +37,10 @@ export class SearchComponent implements OnInit {
       distinctUntilChanged(), // ignora se o próximo termo de pesquisa for o mesmo que o anterior
       switchMap(
         term => 
-          term // switch to new observable each time
-            ? // return the http search observable
+          term 
+            ? // retorna os valores do observable
             this.getrepositorioService.search(term)
-            : // or the observable of empty heroes if no search term
+            : // caso retorne vazio
             of<RepositoriosSearch[]>([])
       ),
       catchError(error => {
@@ -48,7 +48,7 @@ export class SearchComponent implements OnInit {
         console.log(`Error in component ... ${error}`);
         return of<RepositoriosSearch[]>([]);
       })
-    ).subscribe(res => { this.repositorios$ = res.items, console.log(res.items)});
+    ).subscribe(res => { this.repositorios = res.items, console.log(res.items)});
   }
 
 }
